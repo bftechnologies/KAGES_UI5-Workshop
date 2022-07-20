@@ -1,0 +1,28 @@
+<mvc:View controllerName="flight.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+        <Table items="{path: '/FlightCollection', sorter: {path: 'FlightDate', descent: false}}" growing="true" growingThreshold="3" growingScrollToLoad="true">
+            <columns>
+                <Column><header><Text text="AirLineID_12" /></header></Column>
+                <Column><header><Text text="FlightConnectionID" /></header></Column>
+                <Column minScreenWidth="Medium" demandPopin="true"><header><Text text="FlightDate" /></header></Column>
+                <Column minScreenWidth="Medium" demandPopin="true"><header><Text text="DepartureCity" /></header></Column>
+                <Column minScreenWidth="Medium" demandPopin="true"><header><Text text="DestinationCity" /></header></Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{AirLineID}" />
+                        <Text text="{FlightConnectionID}" />
+                        <Text text="{path: 'FlightDate', type: 'sap.ui.model.type.DateTime'}" />
+                        <Text text="{FlightDetails/DepartureCity}" />
+                        <Text text="{FlightDetails/DestinationCity}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        </content>
+    </Page>
+</mvc:View>
